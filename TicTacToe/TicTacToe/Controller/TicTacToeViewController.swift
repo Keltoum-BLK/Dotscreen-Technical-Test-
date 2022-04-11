@@ -55,7 +55,7 @@ class TicTacToeViewController: UIViewController {
         countdownTimer()
         initBoard()
     }
-
+    
     func initBoard() {
         board.append(rang1BTN1)
         board.append(rang1BTN2)
@@ -77,23 +77,23 @@ class TicTacToeViewController: UIViewController {
         return true
     }
     
-   func countdownTimer() {
-       timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    func countdownTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
     func timeString(time:TimeInterval) -> String {
-    let hours = Int(time) / 3600
-    let minutes = Int(time) / 60 % 60
-    let seconds = Int(time) % 60
+        let hours = Int(time) / 3600
+        let minutes = Int(time) / 60 % 60
+        let seconds = Int(time) % 60
         return String(format: "%02i:%02i:%02i", hours, minutes, seconds)
     }
     
     @objc func updateTimer() {
-     countdownTime -= 1
+        countdownTime -= 1
         countdownLabel.text = timeString(time: TimeInterval(countdownTime))
         if countdownTime > 0 {
             countdownTime -= 1
-               countdownLabel.text = timeString(time: TimeInterval(countdownTime))
+            countdownLabel.text = timeString(time: TimeInterval(countdownTime))
         } else {
             countdownLabel.text = "00:00:00"
         }
@@ -127,19 +127,19 @@ class TicTacToeViewController: UIViewController {
     
     func checkVictoryPlayerOne(symbol:  UIImage) {
         //Horizontal victory
-          if  thisSymbol(button: rang1BTN1, symbol: symbol), thisSymbol(button: rang1BTN2, symbol: symbol), thisSymbol(button: rang1BTN3, symbol: symbol) {
-              scoreP1 += 1
-              player1Score.text = "\(scoreP1)"
-          }
-          if  thisSymbol(button: rang2BTN1, symbol: symbol), thisSymbol(button: rang2BTN2, symbol: symbol), thisSymbol(button: rang2BTN3, symbol: symbol) {
-              scoreP1 += 1
-              player1Score.text = "\(scoreP1)"
-          }
-          if  thisSymbol(button: rang3BTN1, symbol: symbol), thisSymbol(button: rang3BTN2, symbol: symbol), thisSymbol(button: rang3BTN3, symbol: symbol) {
-              scoreP1 += 1
-              player1Score.text = "\(scoreP1)"
-          }
-            //Vertical Victory
+        if  thisSymbol(button: rang1BTN1, symbol: symbol), thisSymbol(button: rang1BTN2, symbol: symbol), thisSymbol(button: rang1BTN3, symbol: symbol) {
+            scoreP1 += 1
+            player1Score.text = "\(scoreP1)"
+        }
+        if  thisSymbol(button: rang2BTN1, symbol: symbol), thisSymbol(button: rang2BTN2, symbol: symbol), thisSymbol(button: rang2BTN3, symbol: symbol) {
+            scoreP1 += 1
+            player1Score.text = "\(scoreP1)"
+        }
+        if  thisSymbol(button: rang3BTN1, symbol: symbol), thisSymbol(button: rang3BTN2, symbol: symbol), thisSymbol(button: rang3BTN3, symbol: symbol) {
+            scoreP1 += 1
+            player1Score.text = "\(scoreP1)"
+        }
+        //Vertical Victory
         if  thisSymbol(button: rang1BTN1, symbol: symbol), thisSymbol(button: rang2BTN1, symbol: symbol), thisSymbol(button: rang3BTN1, symbol: symbol) {
             scoreP1 += 1
             player1Score.text = "\(scoreP1)"
@@ -152,7 +152,7 @@ class TicTacToeViewController: UIViewController {
             scoreP1 += 1
             player1Score.text = "\(scoreP1)"
         }
-            //Diagonal Victory
+        //Diagonal Victory
         if  thisSymbol(button: rang1BTN1, symbol: symbol), thisSymbol(button: rang2BTN2, symbol: symbol), thisSymbol(button: rang3BTN3, symbol: symbol) {
             scoreP1 += 1
             player1Score.text = "\(scoreP1)"
@@ -165,19 +165,19 @@ class TicTacToeViewController: UIViewController {
     
     func checkVictoryPlayerTwo(symbol:  UIImage) {
         //Horizontal victory
-          if  thisSymbol(button: rang1BTN1, symbol: symbol), thisSymbol(button: rang1BTN2, symbol: symbol), thisSymbol(button: rang1BTN3, symbol: symbol) {
-              scoreP2 += 1
-              player2Score.text = "\(scoreP2)"
-          }
-          if  thisSymbol(button: rang2BTN1, symbol: symbol), thisSymbol(button: rang2BTN2, symbol: symbol), thisSymbol(button: rang2BTN3, symbol: symbol) {
-              scoreP2 += 1
-              player2Score.text = "\(scoreP2)"
-          }
-          if  thisSymbol(button: rang3BTN1, symbol: symbol), thisSymbol(button: rang3BTN2, symbol: symbol), thisSymbol(button: rang3BTN3, symbol: symbol) {
-              scoreP2 += 1
-              player2Score.text = "\(scoreP2)"
-          }
-            //Vertical Victory
+        if  thisSymbol(button: rang1BTN1, symbol: symbol), thisSymbol(button: rang1BTN2, symbol: symbol), thisSymbol(button: rang1BTN3, symbol: symbol) {
+            scoreP2 += 1
+            player2Score.text = "\(scoreP2)"
+        }
+        if  thisSymbol(button: rang2BTN1, symbol: symbol), thisSymbol(button: rang2BTN2, symbol: symbol), thisSymbol(button: rang2BTN3, symbol: symbol) {
+            scoreP2 += 1
+            player2Score.text = "\(scoreP2)"
+        }
+        if  thisSymbol(button: rang3BTN1, symbol: symbol), thisSymbol(button: rang3BTN2, symbol: symbol), thisSymbol(button: rang3BTN3, symbol: symbol) {
+            scoreP2 += 1
+            player2Score.text = "\(scoreP2)"
+        }
+        //Vertical Victory
         if  thisSymbol(button: rang1BTN1, symbol: symbol), thisSymbol(button: rang2BTN1, symbol: symbol), thisSymbol(button: rang3BTN1, symbol: symbol) {
             scoreP2 += 1
             player2Score.text = "\(scoreP2)"
@@ -190,7 +190,7 @@ class TicTacToeViewController: UIViewController {
             scoreP2 += 1
             player2Score.text = "\(scoreP2)"
         }
-            //Diagonal Victory
+        //Diagonal Victory
         if  thisSymbol(button: rang1BTN1, symbol: symbol), thisSymbol(button: rang2BTN2, symbol: symbol), thisSymbol(button: rang3BTN3, symbol: symbol) {
             scoreP2 += 1
             player2Score.text = "\(scoreP2)"
